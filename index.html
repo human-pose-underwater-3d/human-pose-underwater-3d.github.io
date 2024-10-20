@@ -1,359 +1,211 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</title>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61302010-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+      gtag('config', 'UA-61302010-1');
+    </script>
+    <title>Particle Video Revisited: Tracking Through Occlusions Using Point Trajectories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+      <!-- .cite { background:#f0f0f0; padding:10px; font-size:18px} -->
+      .cite { padding:0px; background:#ffffff; font-size:18px}
+      .card {border: 1px solid #ccc}
+      img { margin-bottom:-6px;}
+      p { font-size:18px;}
+      a {text-decoration: none; color: #2196F3;}
+      .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+      box-shadow:
+      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+      5px 5px 0 0px #fff, /* The second layer */
+      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+      10px 10px 0 0px #fff, /* The third layer */
+      10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+      15px 15px 0 0px #fff, /* The fourth layer */
+      15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+      20px 20px 0 0px #fff, /* The fifth layer */
+      20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+      25px 25px 0 0px #fff, /* The fifth layer */
+      25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+      margin-left: 10px;
+      margin-right: 60px;
+      }
+    </style>
+    <meta name="google-site-verification" content="8Q_ytX8FqHWcIDBc2IoJAwkJ35JRHclQw494GYdlHBE" />
+  </head>  
+  <body class="w3-white">
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+      <!-- The Grid -->
+      <div class="w3-row-padding">
 
-    gtag('js', new Date());
+	<!-- paper container -->	  
+	<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+	  <div class="w3-center">
+	    <h1>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</h1>
+	    <h5><a href="">Ying-Kun Wu</a> &emsp;&emsp; <a href="https://junaedsattar.cs.umn.edu/">Junaed Sattar</a></h5>
+	    <h5><em>RA-L</em></h5>
+	  </div>
+	  <div class="w3-center">
+	    <!-- <h3>[<a href="https://github.com/aharley/pips">Code</a>] &emsp; [<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Harley_Track_Check_Repeat_An_EM_Approach_to_Unsupervised_Tracking_CVPR_2021_paper.pdf">Paper</a>]</h3> -->
+	    <h3>[<a href="">Paper (reviewing)</a>] &emsp; [<a href="https://github.com/yingkunwu/poseiden">Code</a>]</h3>
+	  </div>
+	  <hr>
+	  
+	  <hr>
+	  <div class="w3-center">
+	    <h2>Abstract</h2>
+	  </div>
+	  <p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.</p>
+	  <hr>
 
-    gtag('config', 'G-PYVRSFMDRL');
-  </script>
+    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
+	    <tr style="padding:0px">
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/camel_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+		
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
 
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/fish_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+		
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-</head>
-<body>
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/dancer_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+		
+	      </td>
+	    </tr>
+	  </table>
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</h1>
-          <div class="is-size-5 publication-authors">
-            <h5><a href="">Ying-Kun Wu</a> &emsp;&emsp; <a href="https://junaedsattar.cs.umn.edu/">Junaed Sattar</a></h5>
-          </div>
+	  <div class="w3-center">
+	    <h2>Demo</h2>
+	  </div>
+	  <p><strong>Goal</strong>: Given a target pixel specified on the first frame, track that pixel across the whole video.</p>
+	  <!-- <p>Unlike feature-matching or flow-based methods, particle trajectories can track objects during and through occlusions.</p> -->
+          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+	    <tr style="padding:0px">
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+		<div align="center">DINO</div>
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+		<div align="center">RAFT</div>
+	      </td>
+	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+		<div align="center">PIPs (ours)</div>
+	      </td>
+	    </tr>
+	  </table>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/horse_all.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+	      </td>
+	    </tr>
+	  </table>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/camel_all.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+	      </td>
+	    </tr>
+	  </table>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/dog_all.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+	      </td>
+	    </tr>
+	  </table>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/horse2_all.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+	      </td>
+	    </tr>
+	  </table>
 
-          <div class="is-size-5 publication-authors">
-            <span class="author-block">RA-L</span>
-          </div>
+	  <!-- <p>Our model is trained once, on a large synthetic dataset.</p>n  -->
+	  <p>We call our method <strong>Persistent Independent Particles</strong>, because we treat each pixel as if it is a particle with a long-range trajectory, and we track each particle <em>independently</em>. Some computation is shared between particles, which makes inference fast, but each particle produces its own trajectory, without inspecting the trajectories of its neighbors. A side-effect of this is that we may compute particle trajectories for any given subset of pixels. For the visualization below, we computed particles at three grids of different densities.</p>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/pup_vstack.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+	      </td>
+	    </tr>
+	  </table>
 
-          <div class="column has-text-centered">
-            <div class="publication-links">
-              <!-- PDF Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
+	  
+	  <p>Our method initializes a zero-velocity trajectory (copying the initial position across time), and then iteratively refines the trajectory, using local appearance costs, and a learned trajectory prior. Since it reasons over multiple timesteps simultaneously, it "catch" a target after it re-emerges from an occluder, and inpaint the missing part of the trajectory.</p>
+	  <table>
+	    <tr style="padding:0px">
+	      <td style="width:100%;vertical-align:middle">
+		<!-- <img src="images/iterative_updates2.gif" style="width:100%"> -->
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+		  <source src="videos/iterative_updates2.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+		
+	      </td>
+	    </tr>
+	  </table>
 
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
+	  
+	  <!-- <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center"> -->
+	  <!--   <iframe width="800" height="600" src="https://www.youtube.com/embed/Jg2f5fkgxZo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+	  <!-- </div> -->
+	  <hr>
+	  
 
-              <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/google/nerfies"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
-                  </a>
-              </span>
+	  <div class="w3-row w3-margin" style="padding-bottom:2em">
+	    <div class="w3-center"><h2>Paper</h2></div>
+	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
+	    <div class="w3-col s6 m3 l2">
+	      <a href="https://arxiv.org/abs/2204.04153"><img class="layered-paper-big" src="images/page.png" style="width:100%;min-height:200px; margin-right:3em"></a>
+	    </div>
+	    <div class="w3-col s6 m7 l6" style="padding-left:5em">
+	      <div class="cite">
+		Adam W. Harley, Zhaoyuan Fang, and Katerina Fragkiadaki.
+		<i>Particle Video Revisited: Tracking Through Occlusions Using Point Trajectories.</i> 
+		ECCV 2022.
+	      </div>
+	      <h3><a href="https://arxiv.org/pdf/2204.04153.pdf">[pdf]</a>&emsp;<a href="bib.txt">[bibtex]</a></h3>
+	    </div>
+	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
+	  </div>
+	  <hr>
+	  
+	  <!-- end paper container -->
 
-              <!-- Dataset Link. -->
-              <!-- <span class="link-block">
-                <a href="https://github.com/google/nerfies/releases/tag/0.1"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
-              </span> -->
-            </div>
+	</div><!-- End Grid -->
+      </div><!-- End Page Container -->
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.  
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Abstract. -->
-  </div>
-</section>
-
-
-<section class="section"></section>
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">DiverPose Dataset</h2>
-        <div class="content has-text-justified">
-          <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
-            <tr style="padding:0px">
-              <td style="padding-right:1%;width:32%;vertical-align:middle">
-          <!-- <div align="center">DINO</div> -->
-          <!-- <img style="width:100%;max-width:100%" alt="" src="images/camel_mask.gif"> -->
-          
-          <video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-            <source src="videos/camel_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-          </video>
-          
-              </td>
-              <td style="padding-right:1%;width:32%;vertical-align:middle">
-          <!-- <div align="center">RAFT</div> -->
-          <!-- <img style="width:100%;max-width:100%" alt="" src="images/fish_mask.gif"> -->
-          <video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-            <source src="videos/fish_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-          </video>
-          
-              </td>
-              <td style="padding-right:1%;width:32%;vertical-align:middle">
-          <!-- <img style="width:100%;max-width:100%" alt="" src="images/dancer_mask.gif"> -->
-          <video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-            <source src="videos/dancer_mask_loop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-          </video>
-          
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-    <!--/ DiverPose Dataset. -->
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            This website is licensed under a <a rel="license"
-                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-</body>
+  </body>
 </html>
