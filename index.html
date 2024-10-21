@@ -59,7 +59,7 @@
 	  </div>
 	  <div class="w3-center">
 	    <!-- <h3>[<a href="https://github.com/aharley/pips">Code</a>] &emsp; [<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Harley_Track_Check_Repeat_An_EM_Approach_to_Unsupervised_Tracking_CVPR_2021_paper.pdf">Paper</a>]</h3> -->
-	    <h3>[<a href="">Paper (reviewing)</a>] &emsp; [<a href="https://github.com/yingkunwu/poseiden">Code</a>]</h3>
+	    <h3>[<a href="">Paper (under review)</a>] &emsp; [<a href="https://github.com/yingkunwu/poseiden">Code</a>]</h3>
 	  </div>
 	  
 	  <hr>
@@ -130,23 +130,14 @@
     <hr>
 
 	  <div class="w3-center">
-	    <h2>Demo</h2>
+	    <h2>Evaluation</h2>
 	  </div>
-	  <p><strong>Goal</strong>: Given a target pixel specified on the first frame, track that pixel across the whole video.</p>
-	  <!-- <p>Unlike feature-matching or flow-based methods, particle trajectories can track objects during and through occlusions.</p> -->
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-	    <tr style="padding:0px">
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-		<div align="center">DINO</div>
-	      </td>
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-		<div align="center">RAFT</div>
-	      </td>
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-		<div align="center">PIPs (ours)</div>
-	      </td>
-	    </tr>
-	  </table>
+	  <p>For quantitative analysis, we defined three metrics: (b) Localization, (c) Direction, and (d) Pose, to evaluate the performance of different methods.
+	  </p>
+	  </br>
+	  <p>(1) The localization metric evaluates how accurately the model estimates the distance of the diver from the camera. We asked divers to perform 360-degree horizontal rotations within predefined distances from the camera.
+	  </p>
+
 	  <table>
 	    <tr style="padding:0px">
 	      <td style="width:100%;vertical-align:middle">
@@ -156,6 +147,9 @@
 	      </td>
 	    </tr>
 	  </table>
+	  <p>(2) The direction metric measures the model’s ability to determine the diver’s orientation. Here, divers stood or knelt at a fixed position, initially facing the camera, and rotated 45 degrees clockwise at a time for 8 different orientations.
+	  </p>
+
 	  <table>
 	    <tr style="padding:0px">
 	      <td style="width:100%;vertical-align:middle">
@@ -165,6 +159,9 @@
 	      </td>
 	    </tr>
 	  </table>
+
+	  <p>(3) The pose metric validates if the model can accurately estimate the relative human pose in 3D space. We asked divers to move their arms or legs either in front of or behind their bodies.
+	  </p>
 	  <table>
 	    <tr style="padding:0px">
 	      <td style="width:100%;vertical-align:middle">
@@ -174,50 +171,8 @@
 	      </td>
 	    </tr>
 	  </table>
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/horse2_all.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-	      </td>
-	    </tr>
-	  </table>
 
-	  <!-- <p>Our model is trained once, on a large synthetic dataset.</p>n  -->
-	  <p>We call our method <strong>Persistent Independent Particles</strong>, because we treat each pixel as if it is a particle with a long-range trajectory, and we track each particle <em>independently</em>. Some computation is shared between particles, which makes inference fast, but each particle produces its own trajectory, without inspecting the trajectories of its neighbors. A side-effect of this is that we may compute particle trajectories for any given subset of pixels. For the visualization below, we computed particles at three grids of different densities.</p>
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/pup_vstack.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-	      </td>
-	    </tr>
-	  </table>
-
-	  
-	  <p>Our method initializes a zero-velocity trajectory (copying the initial position across time), and then iteratively refines the trajectory, using local appearance costs, and a learned trajectory prior. Since it reasons over multiple timesteps simultaneously, it "catch" a target after it re-emerges from an occluder, and inpaint the missing part of the trajectory.</p>
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<!-- <img src="images/iterative_updates2.gif" style="width:100%"> -->
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/iterative_updates2.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	    </tr>
-	  </table>
-
-	  
-	  <!-- <div class="w3-display-container w3-row w3-white w3-margin-bottom w3-center"> -->
-	  <!--   <iframe width="800" height="600" src="https://www.youtube.com/embed/Jg2f5fkgxZo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-	  <!-- </div> -->
-	  <hr>
-	  
-
-	  <div class="w3-row w3-margin" style="padding-bottom:2em">
+	  <!-- <div class="w3-row w3-margin" style="padding-bottom:2em">
 	    <div class="w3-center"><h2>Paper</h2></div>
 	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
 	    <div class="w3-col s6 m3 l2">
@@ -233,7 +188,7 @@
 	    </div>
 	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
 	  </div>
-	  <hr>
+	  <hr> -->
 	  
 	  <!-- end paper container -->
 
