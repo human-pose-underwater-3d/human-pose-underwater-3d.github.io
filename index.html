@@ -1,232 +1,222 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-61302010-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61302010-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-      gtag('config', 'UA-61302010-1');
-    </script>
-    <title>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-      html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
-      <!-- .cite { background:#f0f0f0; padding:10px; font-size:18px} -->
-      .cite { padding:0px; background:#ffffff; font-size:18px}
-      .card {border: 1px solid #ccc}
-      img { margin-bottom:-6px;}
-      p { font-size:18px;}
-      a {text-decoration: none; color: #2196F3;}
-      .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
-      box-shadow:
-      0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
-      5px 5px 0 0px #fff, /* The second layer */
-      5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
-      10px 10px 0 0px #fff, /* The third layer */
-      10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
-      15px 15px 0 0px #fff, /* The fourth layer */
-      15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
-      20px 20px 0 0px #fff, /* The fifth layer */
-      20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
-      25px 25px 0 0px #fff, /* The fifth layer */
-      25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
-      margin-left: 10px;
-      margin-right: 60px;
-      }
-    </style>
-    <meta name="google-site-verification" content="8Q_ytX8FqHWcIDBc2IoJAwkJ35JRHclQw494GYdlHBE" />
-  </head>  
-  <body class="w3-white">
-    <!-- Page Container -->
-    <div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
+		gtag('config', 'UA-61302010-1');
+	</script>
+	<title>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<!-- <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		html,body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;}
+		<!-- .cite { background:#f0f0f0; padding:10px; font-size:18px} -->
+		.cite { padding:0px; background:#ffffff; font-size:18px}
+		.card {border: 1px solid #ccc}
+		img { margin-bottom:-6px;}
+		p { font-size:18px;}
+		a {text-decoration: none; color: #2196F3;}
+		.layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+			box-shadow:
+				0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+				5px 5px 0 0px #fff, /* The second layer */
+				5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+				10px 10px 0 0px #fff, /* The third layer */
+				10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+				15px 15px 0 0px #fff, /* The fourth layer */
+				15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+				20px 20px 0 0px #fff, /* The fifth layer */
+				20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+				25px 25px 0 0px #fff, /* The fifth layer */
+				25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+			margin-left: 10px;
+			margin-right: 60px;
+		}
+	</style>
+	<meta name="google-site-verification" content="8Q_ytX8FqHWcIDBc2IoJAwkJ35JRHclQw494GYdlHBE" />
+</head>  
+<body class="w3-white">
+	<!-- Page Container -->
+	<div class="w3-content w3-margin-top w3-margin-bottom" style="max-width:960px;">
 
-      <!-- The Grid -->
-      <div class="w3-row-padding">
+		<!-- The Grid -->
+		<div class="w3-row-padding">
 
-	<!-- paper container -->	  
-	<div class="w3-display-container w3-row w3-white w3-margin-bottom">
-	  <div class="w3-center">
-	    <h1>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</h1>
-	    <h5><a href="">Ying-Kun Wu</a> &emsp;&emsp; <a href="https://junaedsattar.cs.umn.edu/">Junaed Sattar</a></h5>
-	    <h5>Published at RA-L 2025 (Under Review)</h5>
-	  </div>
-	  <div class="w3-center">
-	    <!-- <h3>[<a href="https://github.com/aharley/pips">Code</a>] &emsp; [<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Harley_Track_Check_Repeat_An_EM_Approach_to_Unsupervised_Tracking_CVPR_2021_paper.pdf">Paper</a>]</h3> -->
-	    <h3>[<a href="">Paper</a>] &emsp; [<a href="https://github.com/yingkunwu/poseiden">Code</a>]</h3>
-	  </div>
-	  
-	  <hr>
+			<!-- paper container -->	  
+			<div class="w3-display-container w3-row w3-white w3-margin-bottom">
+				<div class="w3-center">
+					<h1>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</h1>
+					<h5><a href="">Ying-Kun Wu</a> &emsp;&emsp; <a href="https://junaedsattar.cs.umn.edu/">Junaed Sattar</a></h5>
+					<h5>Published at RA-L 2025 (Under Review)</h5>
+				</div>
+				<div class="w3-center">
+					<!-- <h3>[<a href="https://github.com/aharley/pips">Code</a>] &emsp; [<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Harley_Track_Check_Repeat_An_EM_Approach_to_Unsupervised_Tracking_CVPR_2021_paper.pdf">Paper</a>]</h3> -->
+					<h3>[<a href="">Paper</a>] &emsp; [<a href="https://github.com/yingkunwu/poseiden">Code</a>]</h3>
+				</div>
+		
+				<hr>
 
-	<div class="w3-center">
-		 <h2>Quick Preview</h2>
-		</div>
+				<div class="w3-center">
+					<h2>Quick Preview</h2>
+				</div>
 
-		<p>Our model is capable of providing <strong>absolute-scale 3D human poses</strong> from stereo image pairs when only 2D groud truths are availabe for training.</p>
-		<table>
-			<tr style="padding:0px">
-			<td style="width:100%;vertical-align:middle">
-			<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-			<source src="videos/hiphop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-			</video>
-			</td>
-			</tr>
-		</table>
+				<p>Our model is capable of providing <strong>absolute-scale 3D human poses</strong> from stereo image pairs when only 2D groud truths are availabe for training.</p>
+				<table>
+					<tr style="padding:0px">
+						<td style="width:100%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/hiphop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
 
-		<table>
-		<tr style="padding:0px">
-			<td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-			<source src="videos/kata.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-			</td>
-		</tr>
-		</table>
+				<table>
+					<tr style="padding:0px">
+						<td style="width:100%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/kata.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
 
-    <hr>
+				<hr>
 	
-	<div class="w3-center">
-	    <h2>Abstract</h2>
-	  </div>
-	  <p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.</p>
-	  <hr>
+				<div class="w3-center">
+					<h2>Abstract</h2>
+				</div>
+				<p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.</p>
+				<hr>
 
-    <div class="w3-center"></div>
-	    <h2>DiverPose Dataset</h2>
-	  <p>We collected our train dataset that includes footage from both closed-water and open-water environments. It also features challenging poses that divers can perform easily underwater, such as swimming upside down. The 2D keypoints are first manaully annotated by human and further refined by our proposed auto-refinement pipeline. </p>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
-	    <tr style="padding:0px">
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+				<div class="w3-center">
+					<h2>DiverPose Dataset</h2>
+				</div>
+				<p>We collected our train dataset that includes footage from both closed-water and open-water environments. It also features challenging poses that divers can perform easily underwater, such as swimming upside down. The 2D keypoints are first manaully annotated by human and further refined by our proposed auto-refinement pipeline. </p>
+				<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
+					<tr style="padding:0px">
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true"></video>
+								<source src="videos/zed_2024-02-12-18-35-23.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true"></video>
+								<source src="videos/zed_2024-02-12-18-41-20.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+				<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
+					<tr style="padding:0px">
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/subj_upright_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/subj_pronedown_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+				<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
+					<tr style="padding:0px">
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/subj_proneup_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+						<td style="padding-right:1%;width:32%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/subj_inverted_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+				<hr>
 
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/zed_2024-02-12-18-35-23.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
+				<div class="w3-center">
+					<h2>Evaluation</h2>
+				</div>
+				<p>For quantitative analysis, we defined three metrics: (1) <strong>Localization</strong>, (2) <strong>Direction</strong>, and (3) <strong>Pose</strong>, to evaluate the performance of different methods. We compare our results with TR [1] on the DiverPose dataset. 
+				</p>
+
+				<p><strong>(1) The Localization Metric </strong>evaluates how accurately the model estimates the distance of the diver from the camera. We asked divers to perform 360-degree horizontal rotations within predefined distances from the camera.
+				</p>
+
+				<table>
+					<tr style="padding:0px">
+						<td style="width:100%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true"></video>
+								<source src="videos/localization.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+				<p><strong>(2) The Direction Metric </strong>measures the model’s ability to determine the diver’s orientation. Here, divers stood or knelt at a fixed position, initially facing the camera, and rotated 45 degrees clockwise at a time for 8 different orientations.
+				</p>
+
+				<table>
+					<tr style="padding:0px">
+						<td style="width:100%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+								<source src="videos/direction.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+
+				<p><strong>(3) The Pose Metric </strong>validates if the model can accurately estimate the relative human pose in 3D space. We asked divers to move their arms or legs either in front of or behind their bodies.
+				</p>
+				<table>
+					<tr style="padding:0px">
+						<td style="width:100%;vertical-align:middle">
+							<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true"></video>
+								<source src="videos/pose.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+							</video>
+						</td>
+					</tr>
+				</table>
+
+				<hr>
+
+				<div class="w3-center">
+					<h2>References</h2>
+				</div>
+				<p style="font-size:14px;">[1] J. Zhao, T. Yu, L. An, Y. Huang, F. Deng, and Q. Dai, “Triangulation Residual Loss for Data-efficient 3D Pose Estimation,” in Advances in Neural Information Processing Systems 36: Annual Conference on Neural Information Processing Systems, NeurIPS, 2023.</p>
+
+				<!-- <div class="w3-row w3-margin" style="padding-bottom:2em">
+					<div class="w3-center"><h2>Paper</h2></div>
+					<div class="w3-col s0 m1 l2" style="height:10px"></div>
+					<div class="w3-col s6 m3 l2">
+						<a href="https://arxiv.org/abs/2204.04153"><img class="layered-paper-big" src="images/page.png" style="width:100%;min-height:200px; margin-right:3em"></a>
+					</div>
+					<div class="w3-col s6 m7 l6" style="padding-left:5em">
+						<div class="cite">
+							Adam W. Harley, Zhaoyuan Fang, and Katerina Fragkiadaki.
+							<i>Particle Video Revisited: Tracking Through Occlusions Using Point Trajectories.</i> 
+							ECCV 2022.
+						</div>
+						<h3><a href="https://arxiv.org/pdf/2204.04153.pdf">[pdf]</a>&emsp;<a href="bib.txt">[bibtex]</a></h3>
+					</div>
+					<div class="w3-col s0 m1 l2" style="height:10px"></div>
+				</div>
+				<hr> -->
 		
-	      </td>
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+				<!-- end paper container -->
 
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/zed_2024-02-12-18-41-20.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	    </tr>
-	  </table>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
-	    <tr style="padding:0px">
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
+			</div><!-- End Grid -->
+		</div><!-- End Page Container -->
 
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/subj_upright_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/subj_pronedown_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	    </tr>
-	  </table>
-    <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:10px;">
-	    <tr style="padding:0px">
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/subj_proneup_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	      <td style="padding-right:1%;width:32%;vertical-align:middle">
-
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/subj_inverted_02.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-		
-	      </td>
-	    </tr>
-	  </table>
-    <hr>
-
-	<div class="w3-center">
-	    <h2>Evaluation</h2>
-	</div>
-	  <p>For quantitative analysis, we defined three metrics: (1) <strong>Localization</strong>, (2) <strong>Direction</strong>, and (3) <strong>Pose</strong>, to evaluate the performance of different methods. We compare our results with TR [1] on the DiverPose dataset. 
-	  </p>
-
-	  <p><strong>(1) The Localization Metric </strong>evaluates how accurately the model estimates the distance of the diver from the camera. We asked divers to perform 360-degree horizontal rotations within predefined distances from the camera.
-	  </p>
-
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/localization.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-	      </td>
-	    </tr>
-	  </table>
-	  <p><strong>(2) The Direction Metric </strong>measures the model’s ability to determine the diver’s orientation. Here, divers stood or knelt at a fixed position, initially facing the camera, and rotated 45 degrees clockwise at a time for 8 different orientations.
-	  </p>
-
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/direction.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-	      </td>
-	    </tr>
-	  </table>
-
-	  <p><strong>(3) The Pose Metric </strong>validates if the model can accurately estimate the relative human pose in 3D space. We asked divers to move their arms or legs either in front of or behind their bodies.
-	  </p>
-	  <table>
-	    <tr style="padding:0px">
-	      <td style="width:100%;vertical-align:middle">
-		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-		  <source src="videos/pose.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		</video>
-	      </td>
-	    </tr>
-	  </table>
-
-	  <hr>
-
-	  <div class="w3-center"> </div>
-	    <h2>References</h2>
-	  <p style="font-size:14px;">[1] J. Zhao, T. Yu, L. An, Y. Huang, F. Deng, and Q. Dai, “Triangulation Residual Loss for Data-efficient 3D Pose Estimation,” in Advances in Neural Information Processing Systems 36: Annual Conference on Neural Information Processing Systems, NeurIPS, 2023.</p>
-
-	  <!-- <div class="w3-row w3-margin" style="padding-bottom:2em">
-	    <div class="w3-center"><h2>Paper</h2></div>
-	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
-	    <div class="w3-col s6 m3 l2">
-	      <a href="https://arxiv.org/abs/2204.04153"><img class="layered-paper-big" src="images/page.png" style="width:100%;min-height:200px; margin-right:3em"></a>
-	    </div>
-	    <div class="w3-col s6 m7 l6" style="padding-left:5em">
-	      <div class="cite">
-		Adam W. Harley, Zhaoyuan Fang, and Katerina Fragkiadaki.
-		<i>Particle Video Revisited: Tracking Through Occlusions Using Point Trajectories.</i> 
-		ECCV 2022.
-	      </div>
-	      <h3><a href="https://arxiv.org/pdf/2204.04153.pdf">[pdf]</a>&emsp;<a href="bib.txt">[bibtex]</a></h3>
-	    </div>
-	    <div class="w3-col s0 m1 l2" style="height:10px"></div>
-	  </div>
-	  <hr> -->
-	  
-	  <!-- end paper container -->
-
-	</div><!-- End Grid -->
-      </div><!-- End Page Container -->
-
-  </body>
+</body>
 </html>
