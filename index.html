@@ -63,37 +63,39 @@
 	  </div>
 	  
 	  <hr>
-	  <div class="w3-center">
+
+	<div class="w3-center">
+		 <h2>Quick Preview</h2>
+		</div>
+
+		<p>Our model is capable of providing <strong>absolute-scale 3D human poses</strong> from stereo image pairs when only 2D groud truths are availabe for training.</p>
+		<table>
+			<tr style="padding:0px">
+			<td style="width:100%;vertical-align:middle">
+			<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+			<source src="videos/hiphop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+			</video>
+			</td>
+			</tr>
+		</table>
+
+		<table>
+		<tr style="padding:0px">
+			<td style="width:100%;vertical-align:middle">
+		<video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
+			<source src="videos/kata.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
+		</video>
+			</td>
+		</tr>
+		</table>
+
+    <hr>
+	
+	<div class="w3-center">
 	    <h2>Abstract</h2>
 	  </div>
 	  <p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.</p>
 	  <hr>
-
-	<div class="w3-center"></div>
-		<h2>Quick Preview</h2>
-
-	  <p>Our model is capable of providing <strong>absolute-scale 3D poses</strong> of single person from stereo image pairs when only 2D groud truths are availabe for training.</p>
-		<table>
-		  <tr style="padding:0px">
-			<td style="width:100%;vertical-align:middle">
-		  <video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-			<source src="videos/hiphop.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		  </video>
-			</td>
-		  </tr>
-		</table>
-
-		<table>
-		 <tr style="padding:0px">
-			<td style="width:100%;vertical-align:middle">
-		 <video controls style="width:100%;max-width:100%" autoplay="true" loop="true" playsinline="true" muted="true">
-			<source src="videos/kata.mp4" type="video/mp4">Sorry, your browser doesn't support embedded videos.
-		 </video>
-			</td>
-		 </tr>
-		</table>
-
-	<hr>
 
     <div class="w3-center"></div>
 	    <h2>DiverPose Dataset</h2>
@@ -154,8 +156,9 @@
 	  </table>
     <hr>
 
-	<div class="w3-center"></div>
+	<div class="w3-center">
 	    <h2>Evaluation</h2>
+	</div>
 	  <p>For quantitative analysis, we defined three metrics: (1) <strong>Localization</strong>, (2) <strong>Direction</strong>, and (3) <strong>Pose</strong>, to evaluate the performance of different methods. We compare our results with TR [1] on the DiverPose dataset. 
 	  </p>
 
