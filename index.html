@@ -53,9 +53,9 @@
 			<!-- paper container -->	  
 			<div class="w3-display-container w3-row w3-white w3-margin-bottom">
 				<div class="w3-center">
-					<h1>Stereo-Based 3D Human Pose Estimation for Underwater Divers Without 3D Supervision</h1>
+					<h1>Stereo-Based 3D Human Pose Estimation for Underwater Robots Without 3D Supervision</h1>
 					<h5><a href="">Ying-Kun Wu</a> &emsp;&emsp; <a href="https://junaedsattar.cs.umn.edu/">Junaed Sattar</a></h5>
-					<h5>Published at RA-L 2025</h5>
+					<h5>Accepted at RA-L 2025</h5>
 				</div>
 				<div class="w3-center">
 					<!-- <h3>[<a href="https://github.com/aharley/pips">Code</a>] &emsp; [<a href="https://openaccess.thecvf.com/content/CVPR2021/papers/Harley_Track_Check_Repeat_An_EM_Approach_to_Unsupervised_Tracking_CVPR_2021_paper.pdf">Paper</a>]</h3> -->
@@ -94,7 +94,7 @@
 				<div class="w3-center">
 					<h2>Abstract</h2>
 				</div>
-				<p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing absolute-scale 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates 2D human poses while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in finding per-pixel correspondences in textureless regions commonly seen underwater. Additionally, to reduce the sensitivity of our method on 2D annotation accuracy, we design an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in dynamic environments while being efficient enough to run on limited-capacity edge devices.</p>
+				<p>In this paper, we propose a novel deep learning-based 3D underwater human pose estimator capable of providing metric 3D poses of scuba divers from stereo image pairs. While existing research has made significant advancements in 3D human pose estimation, most methods rely on 3D ground truth for training, which is challenging to acquire in dynamic environments where traditional motion capture systems are impractical to deploy. To overcome this, our approach leverages epipolar geometry to derive 3D information from 2D estimations. Our method estimates semantic keypoints while capturing their corresponding disparity from binocular perspectives, thus avoiding challenges in calibrating for multi-view setups or scale-ambiguity in monocular settings. Additionally, to reduce the sensitivity of our method to 2D annotation accuracy, we propose an auto-refinement pipeline to automatically correct biases introduced by human labeling. Experiments demonstrate that our approach significantly improves performance compared to previous state-of-the-art methods in different environments, including but not limited to underwater scenarios, while being efficient enough to run on limited-capacity edge devices.</p>
 				<hr>
 
 				<div class="w3-center">
